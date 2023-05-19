@@ -1,0 +1,14 @@
+body {
+    background-color: rgb(24, 24, 26);
+    color: antiquewhite;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+main>div::-webkit-scrollbar{
+   display: none;
+}

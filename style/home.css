@@ -1,0 +1,13 @@
+.trendingMoviesDiv, .trendingSeriesDiv, .newMoviesDiv, .newSeriesDiv {
+    display: flex;
+    overflow: auto;
+}
+
+.movie, .serie, .movieN, .serieN {
+    padding: 2vw;
+}
+
+.movie > img, .serie > img, .movieN > img, .serieN > img {
+    border-radius: 9px;
+    width: 250px;
+}

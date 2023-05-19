@@ -1,0 +1,29 @@
+main > img {
+    height: 90vh;
+    width: 98.5vw;
+}
+
+h2 {
+    font-size: 3em;
+    text-align: center;
+    margin: 70px;
+}
+
+.divResumeInfos {
+    margin: 50px;
+    display: flex;
+    border: 0 1px 0 0;
+}
+
+.divResume {
+    width: 65vw;
+}
+
+.divResume > p {
+    font-size: 1.35em;
+    margin: 1em 70px;
+}
+
+.divInfos > p {
+    font-size: 1.1em;
+}
