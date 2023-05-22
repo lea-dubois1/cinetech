@@ -59,7 +59,7 @@ window.addEventListener('load', async() => {
     production.innerText = production.innerText.substring(0, production.innerText.length - 2);
 
     const contries = document.createElement('p');
-    contries.innerText = "Production companies : ";
+    contries.innerText = "Production countries : ";
     data.production_countries.forEach(genre => {
         contries.innerText = contries.innerText + genre.name + ', ';
     });
@@ -69,21 +69,44 @@ window.addEventListener('load', async() => {
     revenue.innerText = "Revenue : " + data.revenue.toLocaleString() + "€";
 
 
-    main.appendChild(imageBack);
-    main.appendChild(titre);
-    main.appendChild(divResumeInfos);
+    main.append(imageBack, titre, divResumeInfos);
+    divResumeInfos.append(divResume, divInfos);
+    divResume.append(resume);
+    divInfos.append(genres, release, budget, production, contries, revenue);
 
-        divResumeInfos.appendChild(divResume);
+    
 
-            divResume.appendChild(resume);
-        
-        divResumeInfos.appendChild(divInfos);
+    const request = await fetch('https://api.themoviedb.org/3/movie/' + idMovie + '/recommendations?language=en-US&page=1', options);
+    const result = await request.json();
 
-            divInfos.appendChild(genres);
-            divInfos.appendChild(release);
-            divInfos.appendChild(budget);
-            divInfos.appendChild(production);
-            divInfos.appendChild(contries);
-            divInfos.appendChild(revenue);
+    console.log(result);
+
+    const moviesRecom = document.createElement('div');
+    moviesRecom.className = "recoms";
+
+    const titreRecom = document.createElement('h2');
+    titreRecom.className = "titreRecom";
+    titreRecom.innerText = "Recommendations";
+
+    main.append(titreRecom, moviesRecom);
+
+    result.results.forEach(recom => {
+
+        const div = document.createElement('div');
+        div.className = "recommendations";
+
+        const link = document.createElement('a');
+        link.href = '/cinetech/movie/' + recom.id;
+
+        const image = document.createElement('img');
+        image.src = "https://image.tmdb.org/t/p/w300" + recom.poster_path;
+
+        const titre = document.createElement('p');
+        titre.innerHTML = recom.title;
+
+        moviesRecom.append(div);
+        div.append(link);
+        link.append(image, titre);
+    });
 
 })

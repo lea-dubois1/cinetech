@@ -26,7 +26,7 @@ window.addEventListener('load', async() => {
         div.className = "movie";
 
         const link = document.createElement('a');
-        link.href = 'movie/' + movie.id;
+        link.href = '/cinetech/movie/' + movie.id;
 
         const image = document.createElement('img');
         image.src = "https://image.tmdb.org/t/p/w300" + movie.poster_path;
@@ -34,10 +34,9 @@ window.addEventListener('load', async() => {
         const titre = document.createElement('p');
         titre.innerHTML = movie.title;
 
-        trendingMovies.appendChild(div);
-        div.appendChild(link);
-        link.appendChild(image);
-        link.appendChild(titre);
+        trendingMovies.append(div);
+        div.append(link);
+        link.append(image, titre);
     });
 
     // SERIES
@@ -50,7 +49,7 @@ window.addEventListener('load', async() => {
         div.className = "serie";
 
         const link = document.createElement('a');
-        link.href = 'serie/' + serie.id;
+        link.href = '/cinetech/serie/' + serie.id;
 
         const image = document.createElement('img');
         image.src = "https://image.tmdb.org/t/p/w300" + serie.poster_path;
@@ -58,10 +57,9 @@ window.addEventListener('load', async() => {
         const titre = document.createElement('p');
         titre.innerHTML = serie.name;
 
-        trendingSeries.appendChild(div);
-        div.appendChild(link);
-        link.appendChild(image);
-        link.appendChild(titre);
+        trendingSeries.append(div);
+        div.append(link);
+        link.append(image, titre);
     });
 
     // NEW MOVIES
@@ -74,7 +72,7 @@ window.addEventListener('load', async() => {
         div.className = "movieN";
 
         const link = document.createElement('a');
-        link.href = 'movie/' + movieN.id;
+        link.href = '/cinetech/movie/' + movieN.id;
 
         const image = document.createElement('img');
         image.src = "https://image.tmdb.org/t/p/w300" + movieN.poster_path;
@@ -82,10 +80,9 @@ window.addEventListener('load', async() => {
         const titre = document.createElement('p');
         titre.innerHTML = movieN.title;
 
-        newMovies.appendChild(div);
-        div.appendChild(link);
-        link.appendChild(image);
-        link.appendChild(titre);
+        newMovies.append(div);
+        div.append(link);
+        link.append(image, titre);
     });
 
     // NEW SERIES
@@ -98,7 +95,7 @@ window.addEventListener('load', async() => {
         div.className = "serieN";
 
         const link = document.createElement('a');
-        link.href = 'serie/' + serieN.id;
+        link.href = '/cinetech/serie/' + serieN.id;
 
         const image = document.createElement('img');
         image.src = "https://image.tmdb.org/t/p/w300" + serieN.poster_path;
@@ -106,16 +103,8 @@ window.addEventListener('load', async() => {
         const titre = document.createElement('p');
         titre.innerHTML = serieN.name;
 
-        newSeries.appendChild(div);
-        div.appendChild(link);
-        link.appendChild(image);
-        link.appendChild(titre);
+        newSeries.append(div);
+        div.append(link);
+        link.append(image, titre);
     });
-
-    // const teste = await fetch('https://api.themoviedb.org/3/movie/' + movie.id + '?language=en-US', options);
-    // const test = await teste.json();
-
-    // const teste1 = await fetch('https://api.themoviedb.org/3/tv/' + seie.id + '?language=en-US', options);
-    // const test1 = await teste1.json();
-
 })

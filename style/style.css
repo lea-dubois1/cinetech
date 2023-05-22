@@ -9,6 +9,11 @@ header {
     justify-content: space-around;
 }
 
+.trendingMoviesDiv, .trendingSeriesDiv, .newMoviesDiv, .newSeriesDiv, .recoms {
+    display: flex;
+    overflow: auto;
+}
+
 main>div::-webkit-scrollbar{
    display: none;
 }
