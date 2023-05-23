@@ -5,7 +5,7 @@ use App\Model\MovieModel;
 
 require_once 'vendor/autoload.php';
 
-class BookController
+class MovieController
 {
     public $model;
 

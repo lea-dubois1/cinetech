@@ -31,6 +31,28 @@
         require_once __DIR__ . '/src/View/details.php';
     }, 'detailSerie');
 
+    $router->map('GET', '/authenticate', function() {
+        require_once __DIR__ . '/src/View/authenticate.php';
+    }, 'authenticateGET');
+
+    $router->map('GET', '/login', function() {
+        require_once __DIR__ . '/src/View/login.php';
+    }, 'loginForm');
+
+    $router->map('POST', '/login', function() {
+        $auth = new AuthController;
+        echo json_encode($auth->login(...$_POST), JSON_PRETTY_PRINT);
+    }, 'login');
+
+    $router->map('GET', '/register', function() {
+        require_once __DIR__ . '/src/View/register.php';
+    }, 'registerForm');
+
+    $router->map('POST', '/register', function() {
+        $auth = new AuthController;
+        echo json_encode($auth->register(...$_POST), JSON_PRETTY_PRINT);
+    }, 'register');
+
 
 
 

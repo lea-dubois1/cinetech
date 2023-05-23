@@ -1,6 +1,6 @@
 <header>
     <h1>FILMS & SERIES</h1>
-    <p>Login</p>
+    <a href="/cinetech/authenticate"><p>Login</p></a>
     <p>Trending movies</p>
     <p>Trending series</p>
     <p>Profil</p>
